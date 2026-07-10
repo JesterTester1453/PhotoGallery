@@ -107,3 +107,42 @@ footer a:hover {
 
 }
 
+
+
+
+.album-selector{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin:3rem;
+    flex-wrap:wrap;
+}
+
+.album-btn{
+    padding:12px 24px;
+    font-size:1rem;
+    cursor:pointer;
+    border:none;
+    border-radius:5px;
+    background:#ddd;
+    transition:.2s;
+}
+
+.album-btn:hover{
+    background:#bbb;
+}
+
+.album-btn.active{
+    background:#444;
+    color: var(--accent-secondary);
+}
+
+/* Hide every gallery */
+.gallery{
+    display:none;
+}
+
+/* Show selected gallery */
+.gallery.active-gallery{
+    display:grid;
+}
