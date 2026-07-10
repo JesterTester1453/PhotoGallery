@@ -12,9 +12,14 @@
 
 5. **Personalize the basics** (optional but recommended):
    - Open `index.html` and update the `<title>` and header text.
-   - You can switch between style1 and style2 or even wrtie new styles -> <link rel="stylesheet" href="styles/style1.css">
    - Update the social links in the `.contact-icons` section (Instagram/Facebook/TikTok — delete any you don't use).
    - Swap out `favicon.ico`, `apple-touch-icon.png`, `favicon-32x32.png`, `favicon-16x16.png` for your own, or leave the defaults.
+   - You can switch between `style1` and `style2`, or even write your own new styles — just edit this line in `index.html`:
+```html
+<link rel="stylesheet" href="styles/style1.css">
+```
+Change `style1.css` to `style2.css` (or your own custom stylesheet filename) to switch.
+
 
 That's it — you're live. Your site will be at `https://<your-username>.github.io/<repo-name>/`.
 
@@ -26,7 +31,7 @@ That's it — you're live. Your site will be at `https://<your-username>.github.
 2. Click **Add file → Upload files**.
 3. Drag your image(s) in.
 4. Scroll down, write a commit message, click **Commit changes** (commit directly to `main`).
-5. Within ~30 seconds, check the **Actions** tab — you should see a green ✅ run called "Update Gallery". Once it's done, your site updates automatically.
+5. Within ~30 seconds, check the **Actions** tab — you should see a green run called "Update Gallery". Once it's done, your site updates automatically.
 
 Supported formats: `.jpg`, `.jpeg`, `.png`, `.gif`, `.webp`.
 
