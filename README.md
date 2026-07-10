@@ -45,3 +45,22 @@ It's totally free, but consider giving me a star or keepng my name in the footer
 - GitHub Pages redeploys the site automatically after the Action commits the update.
 
 You never touch `index.html` or the JS yourself — just manage photos in `/photos`.
+
+---
+## License
+
+This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).
+
+You are welcome to:
+- Use this template for personal websites.
+- Modify it to suit your needs.
+- Share your modified version.
+
+Requirements:
+- Give credit to the original author.
+- Include a link to this repository.
+
+Not permitted:
+- Selling this template.
+- Including this template in paid products or services.
+- Commercial use without prior permission.
