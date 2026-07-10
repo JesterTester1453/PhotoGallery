@@ -1,0 +1,53 @@
+name: Update Gallery
+
+# Runs whenever photos are added/removed/renamed through the GitHub website
+# (or any push), regenerates index.html with update-gallery.js, and commits
+# the result back to main. Only triggers on changes inside /photos, and
+# skips runs made by the bot itself, so it can't create an infinite loop.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'photos/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-gallery-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  update-gallery:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run gallery update script
+        run: node update-gallery.js
+
+      - name: Commit and push index.html if it changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+
+          if git diff --cached --quiet; then
+            echo "No gallery changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: auto-update gallery [skip ci]"
+
+          # In case another upload landed while this run was in progress
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
